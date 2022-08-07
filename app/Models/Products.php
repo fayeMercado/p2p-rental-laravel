@@ -12,7 +12,7 @@ class Products extends Model
     //Products Table 
 protected $table = 'products';
 
-protected $fillable = [];
+protected $fillable = ['item_name', 'date_created', 'code', 'category', 'location', 'available_quantity', 'rent_rates', 'ref_deposit', 'images'];
 
 public $timestamps = false;
 }
