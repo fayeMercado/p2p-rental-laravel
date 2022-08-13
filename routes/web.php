@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('/products', 'App\Http\Controllers\ProductController@getProducts');
 
 Route::post('/products', 'App\Http\Controllers\ProductController@postProducts');
+
+Route::get('/cart', 'App\Http\Controllers\CartController@getCart');
+
+Route::post('/cart', 'App\Http\Controllers\CartController@postCart');
