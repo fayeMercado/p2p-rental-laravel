@@ -24,3 +24,11 @@ Route::post('/products', 'App\Http\Controllers\ProductController@postProducts');
 Route::get('/cart', 'App\Http\Controllers\CartController@getCart');
 
 Route::post('/cart', 'App\Http\Controllers\CartController@postCart');
+
+Route::post('/register', 'App\Http\Controllers\UserController@register');
+
+Route::post('/login', 'App\Http\Controllers\UserController@login');
+
+Route::get('/profile', 'App\Http\Controllers\UserController@getProfile');
+
+Route::patch('/profile/edit', 'App\Http\Controllers\UserController@patchProfile');
