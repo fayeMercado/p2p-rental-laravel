@@ -11,8 +11,25 @@ class CartController extends Controller
 {
 
     //<<<<< GET LIST BY CART_ID >>>>>
-    public function getCart() {
-        $cartList = DB::table('cart')->where('cart_id', 'C0000001')->get();
+    // public function getCart() {
+    //     $cartList = DB::table('cart')->where('cart_id', 'C0000001')->get();
+    //     return $cartList;
+    // }
+
+    // public function getCart(Request $request) {
+    //     $cartList = DB::table('cart')
+    //     ->select(['users.name as staff', 'facilities.name as facility'])
+    //     ->where('facilities.name', 'Mulago Hospital');
+    //     return $cartList;
+    // }
+
+    // public function getCart(Request $request) {
+    //     $cartList = Cart::where('cart_id', 'C0000001');
+    //     return $cartList;
+    // }
+
+        public function getCart() {
+        $cartList = Cart::all();
         return $cartList;
     }
 
@@ -35,5 +52,33 @@ class CartController extends Controller
         $item->save();
         return response()->json($item, 200);
     }
+
+    public function deleteCart(Request $request){ 
+        $item = Cart::find($request->input('id'))->delete();
+        return response()->json(Cart::all());
+
+        // $item = Tasks::find($request->input('id'));
+        // $item->deleted = 1;
+        // $item->save();
+        // return response()->json($data);
+    }
+
+
+
+    /**
+     * Handle the incoming request.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
+    public function getCart(Request $request)
+    {
+        $searchQuerey = $request->query('id', 'Learn laravel');
+
+        $cart = Cart::query()->where('cart_id', 'C0000001', $searchQuerey)->take(10)->get();
+
+        return $cart;
+    }
+
 }
 
