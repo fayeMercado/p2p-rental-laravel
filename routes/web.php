@@ -30,8 +30,10 @@ Route::post('/products', 'App\Http\Controllers\ProductController@postProducts');
 
 // <<<<< Cart Controller >>>>>
 // Route::post('/cart/get', 'App\Http\Controllers\CartController@getCart');
-Route::get('/cart', 'App\Http\Controllers\CartController@getCart');
+// Route::get('/cart', 'App\Http\Controllers\CartController@getCart');
 // Route::get('/cart/{id}', 'App\Http\Controllers\CartController@getCart');
+
+Route::get('/cart/{cartId}', 'App\Http\Controllers\CartController@getCart');
 Route::post('/cart', 'App\Http\Controllers\CartController@postCart');
 Route::delete('/cart', 'App\Http\Controllers\CartController@deleteCart');
 Route::patch('/cart', 'App\Http\Controllers\CartController@updateCart');
