@@ -12,10 +12,12 @@ class UserController extends Controller
     public function register(Request $req)
     {
         $user= new User;
+        $user->cart_id= $req->input("cart_id");
         $user->firstname= $req->input("firstname");
         $user->lastname= $req->input("lastname");
         $user->address= $req->input("address");
         $user->mobile= $req->input("mobile");
+        $user->username= $req->input("username");
         $user->email= $req->input("email");
         $user->password= Hash::make($req->input("password"));
         $user->save();
