@@ -12,7 +12,7 @@ class Cart extends Model
     //Cart Table 
 protected $table = 'cart';
 
-protected $fillable = ['cart_id', 'product_code', 'shipping_method', 'shipping_rates', 'quantity', 'rent_date', 'rent_duration', 'total_rent'];
+protected $fillable = ['cart_id', 'product_code', 'shipping_method', 'shipping_rates', 'quantity', 'rent_fromDate', 'rent_toDate', 'rent_duration', 'total_rent', 'orderId', 'id'];
 
 public $timestamps = false;
 }
