@@ -14,7 +14,7 @@ class CartController extends Controller
         public function getCart($cartId) {
         $cartList = DB::table('cart')
         ->where('cart_id', $cartId)
-        ->where('orderId', null)
+        ->where('order_id', null)
         ->get();
         return $cartList;
     }
@@ -26,15 +26,16 @@ class CartController extends Controller
         // ]);
 
         $item = new Cart;
+        $item->date_created = Carbon::now();
         $item->cart_id = $request->input('cart_id');
         $item->product_code = $request->input('product_code');
-        $item->shipping_method = $request->input('shipping_method');
-        $item->shipping_rates = $request->input('shipping_rates');
         $item->quantity = $request->input('quantity');
         $item->rent_fromDate = $request->input('rent_fromDate');
-        $item->rent_toDate = $request->input('rent_toDate');
+        $item->rent_toDate = $request->input('rent_toDate');      
         $item->rent_duration = $request->input('rent_duration');
         $item->total_rent = $request->input('total_rent');
+        $item->shipping_method = $request->input('shipping_method');
+        $item->shipping_rates = $request->input('shipping_rates');
 
         $item->save();
         return response()->json($item, 200);
@@ -67,7 +68,7 @@ class CartController extends Controller
     //<<<<< UPON CHECKOUT >>>>>
     public function checkoutCart(Request $request){
         $item = Cart::find($request->input('id'));
-        $item->orderId = $request->input('orderId');
+        $item->order_id = $request->input('order_id');
         $item->orderCreated = Carbon::now();
         $item->save();
         return response()->json($item);
