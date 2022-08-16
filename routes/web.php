@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Cart;
+use Illuminate\Support\Facades\DB;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +38,5 @@ Route::get('/cart/{cartId}', 'App\Http\Controllers\CartController@getCart');
 Route::post('/cart', 'App\Http\Controllers\CartController@postCart');
 Route::delete('/cart', 'App\Http\Controllers\CartController@deleteCart');
 Route::patch('/cart', 'App\Http\Controllers\CartController@updateCart');
+Route::patch('/cart/checkout', 'App\Http\Controllers\CartController@checkoutCart');
 
-
-// Route::get('cart/{cart_id}', function ($cart_id) {
-//     $Carts = Route::get('/cart', 'App\Http\Controllers\CartController@getCart');
-//     return Carts.$cart_id;
-// });
-
-// Route::get('/cart/{id}', 'App\Http\Controllers\CartController@getCart');
