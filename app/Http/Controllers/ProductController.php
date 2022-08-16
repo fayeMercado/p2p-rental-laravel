@@ -27,6 +27,8 @@ class ProductController extends Controller
         $product->available_quantity = $request->input('available_quantity'); 
         $product->rent_rates = $request->input('rent_rates'); 
         $product->ref_deposit = $request->input('ref_deposit'); 
+        $product->owner = $request->input('owner'); 
+        $product->item_description = $request->input('item_description'); 
         $product->images = $request->input('images'); 
 
         $product->save();
