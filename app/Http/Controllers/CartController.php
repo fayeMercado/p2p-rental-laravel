@@ -69,7 +69,7 @@ class CartController extends Controller
     public function checkoutCart(Request $request){
         $item = Cart::find($request->input('id'));
         $item->order_id = $request->input('order_id');
-        $item->orderCreated = Carbon::now();
+        $item->order_created = Carbon::now();
         $item->save();
         return response()->json($item);
 
