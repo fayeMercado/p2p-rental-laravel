@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('cart_id')->unique();
             $table->integer('item_total');
             $table->tinyInteger('accepted');
-            $table->timestamp('date_accepted');
+            $table->dateTime('date_accepted');
             $table->tinyInteger('returned');
-            $table->timestamp('date_returned');
+            $table->dateTime('date_returned');
         });
     }
 
